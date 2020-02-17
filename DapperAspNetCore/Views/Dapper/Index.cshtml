@@ -1,0 +1,119 @@
+﻿@model List<Students>
+@{
+    ViewData["Title"] = "Index";
+}
+<script src="~/js/global.js"></script>
+<div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+    <div class="wrapper wrapper--w680">
+        <div class="card card-4">
+            <div class="card-body">
+                <h2 class="title">Öğrenci Kayıt</h2>
+                <form name="addStudent">
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">TC Kimlik Numarası</label>
+                                <input class="input--style-4" type="text" id="TcNo" onkeypress="return isNumber(event)" name="TcNo">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">İsim</label>
+                                <input class="input--style-4" id="Ad" type="text" name="Ad">
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Soyisim</label>
+                                <input class="input--style-4" id="Soyad" type="text" name="Soyad">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Cinsiyet</label>
+                                <div class="p-t-10">
+                                    <label class="radio-container m-r-45">
+                                        Erkek
+                                        <input type="radio" checked="checked" id="Cinsiyet" name="Cinsiyet" value="Erkek">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="radio-container">
+                                        Kadın
+                                        <input type="radio" name="Cinsiyet" id="Cinsiyet" value="Kadın">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Doğum Tarihi</label>
+                                <div class="input-group-icon">
+                                    <input class="input--style-4 js-datepicker" id="DogumTarihi" type="text" name="DogumTarihi">
+                                    <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Okul</label>
+                                <input class="input--style-4" id="Okul" type="text" name="Okul">
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                                <label class="label">Sınıf</label>
+                                <input class="input--style-4" id="Sınıf" type="text" name="Sınıf">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-t-15">
+                        <button class="btn btn--radius-2 btn--blue" id="btnAdd" type="submit">Kayıt Ekle</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper wrapper--w960">
+        <div class="card card-4">
+            <div class="card-body">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Tc No</th>
+                            <th scope="col">Ad</th>
+                            <th scope="col">Soyad</th>
+                            <th scope="col">Cinsiyet</th>
+                            <th scope="col">Doğum Tarihi</th>
+                            <th scope="col">Okul</th>
+                            <th scope="col">Sınıf</th>
+                        </tr>
+                    </thead>
+                    <tbody id="myStudents">
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.TcNo</td>
+                                <td>@item.Ad</td>
+                                <td>@item.Soyad</td>
+                                <td>@item.Cinsiyet</td>
+                                <td>@item.DogumTarihi</td>
+                                <td>@item.Okul</td>
+                                <td>@item.Sınıf</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>         
+</div>
